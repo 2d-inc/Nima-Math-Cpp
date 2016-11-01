@@ -67,3 +67,13 @@ bool Mat2D::invert(Mat2D& result, const Mat2D& a)
 	result[5] = (ab * atx - aa * aty) * det;
 	return true;
 }
+
+void Mat2D::copy(Mat2D& result, const Mat2D& a)
+{
+	result[0] = a[0];
+	result[1] = a[1];
+	result[2] = a[2];
+	result[3] = a[3];
+	result[4] = a[4];
+	result[5] = a[5];
+}

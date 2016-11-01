@@ -9,6 +9,11 @@ Vec2D::Vec2D() : m_Buffer{0.0f,0.0f}
 
 }
 
+Vec2D::Vec2D(float x, float y) : m_Buffer{x, y}
+{
+
+}
+
 Vec2D::Vec2D(const Vec2D& copy) : m_Buffer{copy.m_Buffer[0], copy.m_Buffer[1]}
 {
 
@@ -33,4 +38,10 @@ float Vec2D::length(const Vec2D& a)
 	float x = a[0];
 	float y = a[1];
 	return sqrt(x*x + y*y);
+}
+
+void Vec2D::copy(Vec2D& result, const Vec2D& a)
+{
+	result[0] = a[0];
+	result[1] = a[1];
 }

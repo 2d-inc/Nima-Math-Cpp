@@ -22,6 +22,7 @@ namespace nima
 			static void scale(Mat2D& result, const Mat2D& mat, const Vec2D& vec);
 			static void multiply(Mat2D& result, const Mat2D& a, const Mat2D& b);
 			static bool invert(Mat2D& result, const Mat2D& a);
+			static void copy(Mat2D& result, const Mat2D& a);
 	};
 }
 #endif
