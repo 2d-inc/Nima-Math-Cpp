@@ -15,6 +15,8 @@ namespace nima
 			Vec2D(const Vec2D& copy);
 			Vec2D(float x, float y);
 
+			inline const float* values() const { return m_Buffer; }
+
 			float& operator[](std::size_t idx) { return m_Buffer[idx]; }
 			const float& operator[](std::size_t idx) const { return m_Buffer[idx]; }
 

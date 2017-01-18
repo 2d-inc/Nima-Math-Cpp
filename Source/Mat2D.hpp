@@ -14,6 +14,8 @@ namespace nima
 		public:
 			Mat2D();
 			Mat2D(const Mat2D& copy);
+			
+			inline const float* values() const { return m_Buffer; }
 
 			float& operator[](std::size_t idx) { return m_Buffer[idx]; }
 			const float& operator[](std::size_t idx) const { return m_Buffer[idx]; }
