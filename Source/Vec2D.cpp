@@ -45,3 +45,21 @@ void Vec2D::copy(Vec2D& result, const Vec2D& a)
 	result[0] = a[0];
 	result[1] = a[1];
 }
+
+void Vec2D::normalize(Vec2D& result, const Vec2D& a)
+{
+	float x = a[0];
+	float y = a[1];
+	float len = x*x + y*y;
+	if (len > 0) 
+	{
+		len = 1.0f / std::sqrt(len);
+		result[0] = a[0] * len;
+		result[1] = a[1] * len;
+    }
+}
+
+float Vec2D::dot(const Vec2D& a, const Vec2D& b)
+{
+	return a[0] * b[0] + a[1] * b[1];
+}
