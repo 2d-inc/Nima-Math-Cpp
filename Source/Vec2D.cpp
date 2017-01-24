@@ -27,6 +27,12 @@ void Vec2D::transform(Vec2D& result, const Vec2D& a, const Mat2D& m)
 	result[1] = m[1] * x + m[3] * y + m[5];
 }
 
+void Vec2D::add(Vec2D& result, const Vec2D& a, const Vec2D& b)
+{
+	result[0] = a[0] + b[0];
+	result[1] = a[1] + b[1];
+}
+
 void Vec2D::subtract(Vec2D& result, const Vec2D& a, const Vec2D& b)
 {
 	result[0] = a[0] - b[0];

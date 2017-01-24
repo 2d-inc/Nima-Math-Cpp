@@ -26,5 +26,12 @@ namespace nima
 			static bool invert(Mat2D& result, const Mat2D& a);
 			static void copy(Mat2D& result, const Mat2D& a);
 	};
+
+	inline Mat2D operator*(const Mat2D& a, const Mat2D& b)
+	{
+		Mat2D result;
+		Mat2D::multiply(result, a, b);
+		return result;
+	}
 }
 #endif
