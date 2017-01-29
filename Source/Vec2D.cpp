@@ -57,7 +57,7 @@ void Vec2D::normalize(Vec2D& result, const Vec2D& a)
 	float x = a[0];
 	float y = a[1];
 	float len = x*x + y*y;
-	if (len > 0) 
+	if (len > 0.0f) 
 	{
 		len = 1.0f / std::sqrt(len);
 		result[0] = a[0] * len;
