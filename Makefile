@@ -18,7 +18,9 @@ HEADERS			= $(call rwildcard,Source/,*.hpp)
 #all: dirs $(OUTPUTFILE)
 #	cd Example && make
 
-all: dirs $(OUTPUTFILE)
+all: dirs $(OUTPUTFILE) headers
+
+headers:
 # Copy header files to include dir.
 	$(foreach header,$(HEADERS),$(shell mkdir -p $(INCLUDE_DIR)/$(dir $(subst Source/,,$(header))) && cp $(header) $(INCLUDE_DIR)/$(subst Source/,,$(header))))
 
