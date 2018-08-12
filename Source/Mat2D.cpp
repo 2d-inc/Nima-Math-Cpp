@@ -1,5 +1,6 @@
 #include "Mat2D.hpp"
 #include "Vec2D.hpp"
+#include "TransformComponents.hpp"
 #include <cmath>
 
 using namespace nima;
@@ -76,4 +77,48 @@ void Mat2D::copy(Mat2D& result, const Mat2D& a)
 	result[3] = a[3];
 	result[4] = a[4];
 	result[5] = a[5];
+}
+
+void Mat2D::decompose(TransformComponents& result, const Mat2D& m)
+{
+	float m0 = m[0], m1 = m[1], m2 = m[2], m3 = m[3];
+
+	float rotation = (float)std::atan2(m1, m0);
+	float denom = m0*m0 + m1*m1;
+	float scaleX = (float)std::sqrt(denom);
+	float scaleY = (m0 * m3 - m2 * m1) / scaleX;
+	float skewX = (float)std::atan2(m0 * m2 + m1 * m3, denom);
+
+	result.x(m[4]);
+	result.y(m[5]);
+	result.scaleX(scaleX);
+	result.scaleY(scaleY);
+	result.rotation(rotation);
+	result.skew(skewX);
+}
+
+void Mat2D::compose(Mat2D& result, const TransformComponents& components)
+{
+	float r = components.rotation();
+
+	if(r != 0.0)
+	{
+		Mat2D::fromRotation(result, r);
+	}
+	else
+	{
+		Mat2D::identity(result);
+	}
+	result[4] = components.x();
+	result[5] = components.y();
+	Vec2D scale;
+	components.scale(scale);
+	Mat2D::scale(result, result, scale);
+
+	float sk = components.skew();
+	if(sk != 0.0)
+	{
+		result[2] = result[0] * sk + result[2];
+		result[3] = result[1] * sk + result[3];
+	}
 }
