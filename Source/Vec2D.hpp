@@ -21,6 +21,7 @@ namespace nima
 			const float& operator[](std::size_t idx) const { return m_Buffer[idx]; }
 
 			static void transform(Vec2D& result, const Vec2D& a, const Mat2D& m);
+			static void transformDir(Vec2D& result, const Vec2D& a, const Mat2D& m);
 			static void subtract(Vec2D& result, const Vec2D& a, const Vec2D& b);
 			static void add(Vec2D& result, const Vec2D& a, const Vec2D& b);
 			static float length(const Vec2D& a);

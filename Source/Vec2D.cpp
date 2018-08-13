@@ -27,6 +27,14 @@ void Vec2D::transform(Vec2D& result, const Vec2D& a, const Mat2D& m)
 	result[1] = m[1] * x + m[3] * y + m[5];
 }
 
+void Vec2D::transformDir(Vec2D& result, const Vec2D& a, const Mat2D& m)
+{
+	float x = a[0];
+	float y = a[1];
+	result[0] = m[0] * x + m[2] * y;
+	result[1] = m[1] * x + m[3] * y;
+}
+
 void Vec2D::add(Vec2D& result, const Vec2D& a, const Vec2D& b)
 {
 	result[0] = a[0] + b[0];
