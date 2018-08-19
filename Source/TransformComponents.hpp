@@ -35,6 +35,16 @@ namespace nima
 
             void translation(Vec2D& result) const { result[0] = m_X; result[1] = m_Y; }
             void scale(Vec2D& result) const { result[0] = m_ScaleX; result[1] = m_ScaleY; }
+
+            static void copy(TransformComponents& result, const TransformComponents& a)
+            {
+                result.m_X = a.m_X;
+                result.m_Y = a.m_Y;
+                result.m_ScaleX = a.m_ScaleX;
+                result.m_ScaleY = a.m_ScaleY;
+                result.m_Rotation = a.m_Rotation;
+                result.m_Skew = a.m_Skew;
+            }
 	};
 }
 #endif
