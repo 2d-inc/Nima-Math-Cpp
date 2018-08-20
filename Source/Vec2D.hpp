@@ -28,6 +28,8 @@ namespace nima
 			static void copy(Vec2D& result, const Vec2D& a);
 			static void normalize(Vec2D& result, const Vec2D& a);
 			static float dot(const Vec2D& a, const Vec2D& b);
+			static void lerp(Vec2D& o, const Vec2D& a, const Vec2D& b, float f);
+			static void scale(Vec2D& o, const Vec2D& a, float scale);
 	};
 
 	inline Vec2D operator*(const Mat2D& a, const Vec2D& b)

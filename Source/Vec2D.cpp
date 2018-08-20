@@ -77,3 +77,17 @@ float Vec2D::dot(const Vec2D& a, const Vec2D& b)
 {
 	return a[0] * b[0] + a[1] * b[1];
 }
+
+void Vec2D::lerp(Vec2D& o, const Vec2D& a, const Vec2D& b, float f)
+{
+	float ax = a[0];
+	float ay = a[1];
+	o[0] = ax + f * (b[0] - ax);
+	o[1] = ay + f * (b[1] - ay);
+}
+
+void Vec2D::scale(Vec2D& o, const Vec2D& a, float scale) 
+{
+	o[0] = a[0] * scale;
+	o[1] = a[1] * scale;
+}
